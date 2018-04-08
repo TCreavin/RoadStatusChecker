@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <meta charset="UTF-8">
+    <title>TFL Road Status Checker</title>
+</head>
+<body>
+ <div class="container">
+     <h1> let us make a form</h1>
+     <div class="row">
+         <form class="col s12" action="/checkStatus">
+             <div class="row">
+                 <div class="input-field col s6">
+                     <input placeholder="Road" id="road" type="text" class="validate">
+                     <label for="road">Road</label>
+                 </div>
+                 <div class="input-field col s6">
+                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                         <i class="material-icons right">send</i>
+                     </button>
+                 </div>
+             </div>
+
+         </form>
+     </div>
+ </div>
+</body>
+</html>
