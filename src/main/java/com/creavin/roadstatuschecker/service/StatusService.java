@@ -4,5 +4,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface StatusService {
-    public String roadStatus(final String roadId);
+    String roadStatus(final String roadId);
 }
