@@ -89,8 +89,30 @@ public class StatusServiceImplTest {
 
     @Ignore
     @Test
-    public void nullTest() {
-        RoadStatus rs = statusService.roadStatus(null);
-        System.out.println("null");
+    public void blankTest() {
+        RoadStatus rs = statusService.roadStatus("");
+        assertEquals(rs.getDisplayName(), "A1");
+    }
+
+    @Test
+    public void invalidApiKey() {
+        when(tflConfig.getApiAddress()).thenReturn("www.api.fail.co.uk");
+        when(tflConfig.getAppKey()).thenReturn("key");
+        when(tflConfig.getAppId()).thenReturn("id");
+        when(tflConfig.getApiRoad()).thenReturn("Road");
+
+        RoadStatus rs = statusService.roadStatus("");
+        assertEquals(rs, null);
+    }
+
+    @Test
+    public void invalidApiConfig() {
+        when(tflConfig.getApiAddress()).thenReturn("");
+        when(tflConfig.getAppKey()).thenReturn(null);
+        when(tflConfig.getAppId()).thenReturn("");
+        when(tflConfig.getApiRoad()).thenReturn("");
+
+        RoadStatus rs = statusService.roadStatus("test");
+        assertEquals(rs, null);
     }
 }

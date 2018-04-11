@@ -1,5 +1,6 @@
 package com.creavin.roadstatuschecker.controller;
 
+import com.creavin.roadstatuschecker.model.RoadStatus;
 import com.creavin.roadstatuschecker.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,10 +39,12 @@ public class RoadStatusController {
     @GetMapping("/checkStatus")
     public final String checkRoadStatus(@RequestParam(required = false) final String road, final Model model) {
         //call status service
-        if (road != null) {
-            model.addAttribute("roadStatus", statusService.roadStatus(road));
+        RoadStatus rs = statusService.roadStatus(road);
+        if (rs != null) {
+            model.addAttribute("roadStatus", rs);
         } else {
-            model.addAttribute("error", "Please provide a road to check the status of.");
+            model.addAttribute("error", "Sorry we cannot currently check the status of your road");
+            System.out.println("Please check your endpoints and your api credentials.");
         }
         return "status";
     }

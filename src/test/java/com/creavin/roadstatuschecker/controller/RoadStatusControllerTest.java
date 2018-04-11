@@ -67,4 +67,12 @@ public class RoadStatusControllerTest {
                         equalTo("Unavailable"))));
     }
 
+    @Test
+    public void returnError() throws Exception {
+        Mockito.when(statusService.roadStatus("TEST")).thenReturn(null);
+        mockMvc.perform(get("/checkStatus").param("road", "TEST"))
+                .andExpect(model().attribute
+                        ("error", "Sorry we cannot currently check the status of your road"));
+    }
+
 }

@@ -33,6 +33,10 @@
          </div>
      </div>
  </div>
+
+ <div class="container" th:if="${error != null}">
+     <p style="color:red">[[${error}]]</p>
+ </div>
  <div class="container" th:if="${roadStatus != null && roadStatus.displayName != null}">
      <h1>Road Info</h1>
      <table class="responsive-table centered">

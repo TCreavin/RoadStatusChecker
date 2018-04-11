@@ -38,3 +38,9 @@ http://localhost:8080/tflApi
 ## Testing
 
 Unit tests can be run using the maven goal test.
+
+## Additional Information
+
+Maven goal checkstyle:checkstyle has been used to enforce a set of code style standards on this dummy project, config found in checkstyle.xml.
+
+Postman seems to still respond with a result when app key and app id are not present.
