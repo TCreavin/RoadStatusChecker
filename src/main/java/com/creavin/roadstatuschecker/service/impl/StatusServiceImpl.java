@@ -24,12 +24,12 @@ public class StatusServiceImpl implements StatusService {
      * The rest template.
      */
     @Autowired
-    public RestTemplate restTemplate;
+    private RestTemplate restTemplate;
     /**
      * The TFL Config.
      */
     @Autowired
-    public TflConfig tflConfig;
+    private TflConfig tflConfig;
 
     /**
      * Find the status for a given road.
@@ -38,14 +38,16 @@ public class StatusServiceImpl implements StatusService {
      * @return return a roadStatus.
      */
     @Override
-    public RoadStatus roadStatus(String roadId) {
+    public final RoadStatus roadStatus(final String roadId) {
         List<RoadStatus> statuses = new ArrayList<>();
-        String resourceUrl = tflConfig.getApiAddress() + "/" + tflConfig.getApiRoad() + "/" + roadId
-                + "?app_id=" + tflConfig.getAppId() + "&app_key=" + tflConfig.getAppKey();
+        String resourceUrl = tflConfig.getApiAddress() + "/"
+                + tflConfig.getApiRoad() + "/" + roadId + "?app_id="
+                + tflConfig.getAppId() + "&app_key=" + tflConfig.getAppKey();
         try {
-            ResponseEntity<List<RoadStatus>> response = restTemplate.exchange(resourceUrl, HttpMethod.GET, null,
-                    new ParameterizedTypeReference<List<RoadStatus>>() {
-                    });
+            ResponseEntity<List<RoadStatus>> response =
+                    restTemplate.exchange(resourceUrl, HttpMethod.GET,
+                            null, new ParameterizedTypeReference<List<RoadStatus>>() {
+                            });
             statuses = response.getBody();
         } catch (HttpClientErrorException e) {
             ObjectMapper om = new ObjectMapper();

@@ -8,5 +8,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface StatusService {
-    RoadStatus roadStatus(final String roadId);
+    /**
+     * Lookup road status.
+     * @param roadId the id of the road.
+     * @return road status model.
+     */
+    RoadStatus roadStatus(String roadId);
 }

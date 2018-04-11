@@ -8,18 +8,34 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Spring boot app declaration.
+ */
 @SpringBootApplication
 public class RoadStatusCheckerApplication {
 
-    public static void main(String[] args) {
+    /**
+     * Start the app.
+     * @param args any app arguments.
+     */
+    public static void main(final String[] args) {
         SpringApplication.run(RoadStatusCheckerApplication.class, args);
     }
 
+    /**
+     * Reusable rest template.
+     * @param builder the builder.
+     * @return the rest template.
+     */
     @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+    public RestTemplate restTemplate(final RestTemplateBuilder builder) {
         return builder.build();
     }
 
+    /**
+     * The road status service.
+     * @return service to lookup road status.
+     */
     @Bean
     public StatusService statusService() {
         return new StatusServiceImpl();

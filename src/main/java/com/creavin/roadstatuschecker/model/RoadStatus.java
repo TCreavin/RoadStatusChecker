@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * Road Status model object.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RoadStatus {
+public final class RoadStatus {
     /**
      * The road display name.
      */
@@ -32,7 +32,7 @@ public class RoadStatus {
         return displayName;
     }
 
-    public void setDisplayName(String displayName) {
+    public void setDisplayName(final String displayName) {
         this.displayName = displayName;
     }
 
@@ -40,7 +40,7 @@ public class RoadStatus {
         return statusSeverity;
     }
 
-    public void setStatusSeverity(String statusSeverity) {
+    public void setStatusSeverity(final String statusSeverity) {
         this.statusSeverity = statusSeverity;
     }
 
@@ -48,7 +48,7 @@ public class RoadStatus {
         return statusSeverityDescription;
     }
 
-    public void setStatusSeverityDescription(String statusSeverityDescription) {
+    public void setStatusSeverityDescription(final String statusSeverityDescription) {
         this.statusSeverityDescription = statusSeverityDescription;
     }
 
@@ -56,7 +56,7 @@ public class RoadStatus {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(final String message) {
         this.message = message;
     }
 
@@ -64,7 +64,7 @@ public class RoadStatus {
         return httpStatusCode;
     }
 
-    public void setHttpStatusCode(int httpStatusCode) {
+    public void setHttpStatusCode(final int httpStatusCode) {
         this.httpStatusCode = httpStatusCode;
     }
 }

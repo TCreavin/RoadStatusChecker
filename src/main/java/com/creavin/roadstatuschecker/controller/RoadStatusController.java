@@ -16,16 +16,15 @@ public class RoadStatusController {
      * The status service.
      */
     @Autowired
-    public StatusService statusService;
+    private StatusService statusService;
 
     /**
      * Display the status checker form.
      *
-     * @param model the model attached to the view.
      * @return the view.
      */
     @GetMapping("/statusChecker")
-    public String showStatusChecker() {
+    public final String showStatusChecker() {
         return "status";
     }
 
@@ -37,7 +36,7 @@ public class RoadStatusController {
      * @return the view.
      */
     @GetMapping("/checkStatus")
-    public String checkRoadStatus(@RequestParam(required = false) final String road, final Model model) {
+    public final String checkRoadStatus(@RequestParam(required = false) final String road, final Model model) {
         //call status service
         if (road != null) {
             model.addAttribute("roadStatus", statusService.roadStatus(road));
