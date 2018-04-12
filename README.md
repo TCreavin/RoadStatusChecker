@@ -10,6 +10,8 @@ The solution offered is a simple web app with a single form to read in user road
 
 ## Assumptions
 
+When all config for the api call are not present, don't bother calling the api as response would be negative. (app key and app id need to be present)
+
 When no road is provided, the api's default response is better than no response.
 
 The message attribute of 404 is sufficiently verbose for an informative message to the user. 
@@ -43,4 +45,4 @@ Unit tests can be run using the maven goal test.
 
 Maven goal checkstyle:checkstyle has been used to enforce a set of code style standards on this dummy project, config found in checkstyle.xml.
 
-Postman seems to still respond with a result when app key and app id are not present.
+Postman seems to still respond with a result when app key and app id are not present. I didn't wish for an incomplete call to an api to be made so I made app id and app key mandatory. Sorry if this makes your testing difficult!

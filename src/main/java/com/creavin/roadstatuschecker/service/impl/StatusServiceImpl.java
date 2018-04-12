@@ -90,7 +90,7 @@ public class StatusServiceImpl implements StatusService {
                 && tflConfig.getAppId().length() > 0 && tflConfig.getApiRoad().length() > 0) {
             result = true;
         } else {
-            System.out.print("Problem with config");
+            System.out.println("Problem with config");
         }
 
         return result;
